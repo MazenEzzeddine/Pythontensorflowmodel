@@ -1,0 +1,11 @@
+docker run -t --rm   -p 8501:8501   -v C:\\Users\\m.ezzeddine\\PycharmProjects\\SimpleTensorFlowModel\\square\\1:/models/square/1
+-e MODEL_NAME=square   tensorflow/serving&
+docker run -t --rm   -p 8501:8501   -v C:\\Users\\m.ezzeddine\\PycharmProjects\\SimpleTensorFlowModel\\square\\1:/models/square/1
+-e MODEL_NAME=square   tensorflow/serving&
+
+
+
+curl -X POST \
+  http://localhost:8501/v1/models/square:predict \
+  -H 'Content-Type: application/json' \
+  -d '{"instances": [1.0, 2.0, 3.0, 4.0]}'
